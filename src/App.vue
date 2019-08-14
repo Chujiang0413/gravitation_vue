@@ -1,23 +1,56 @@
+<!--App.vue是项目入口文件。-->
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <header-tab></header-tab>
+    <h2>{{msg}}</h2>
+    <div class="nav-box">
+      <p class="nav-list">
+        <router-link class="nav-item" to="/">首页</router-link>
+        <router-link class="nav-item" to="/about">关于</router-link>
+      </p>
+    </div>
+    <div>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
+import HeaderTab from './components/header.vue'
 export default {
-  name: 'App'
+  name: 'app',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  components: {
+    HeaderTab
+  }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style type="text/css">
+  h2{
+    color:#ff0000;
+  }
+  #app {
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
+  h1, h2 {
+    font-weight: normal;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    text-align: left;
+    margin: 0 10px;
+  }
+  a {
+    color: #42b983;
+  }
 </style>
